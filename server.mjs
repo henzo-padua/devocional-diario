@@ -8,6 +8,13 @@ app.use(cors());
 
 const PORT = 3000;
 const CACHE_FILE = "./cache.json";
+const cors = require('cors');
+const corsOptions = {
+  origin: 'https://henzo-padua.github.io',
+  optionsSuccessStatus: 200
+};
+
+
 
 // Lista de livros possíveis para escolher versículos aleatórios (respeitando a tradução usada)
 const books = [
@@ -84,3 +91,4 @@ app.get("/api/devotional", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+app.use(cors(corsOptions));
